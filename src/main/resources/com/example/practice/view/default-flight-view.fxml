@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.practice.controller.FlightController">
+   <children>
+      <AnchorPane layoutY="103.0" prefHeight="663.0" prefWidth="1024.0" style="-fx-background-color: white;">
+         <children>
+            <LineChart fx:id="lineChart_id" layoutY="61.0" prefHeight="441.0" prefWidth="1024.0">
+              <xAxis>
+                <NumberAxis prefHeight="48.0" prefWidth="967.0" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <Label fx:id="infoLabel_id" layoutX="14.0" layoutY="554.0" prefHeight="95.0" prefWidth="275.0" />
+         </children>
+      </AnchorPane>
+      <TextField fx:id="angle_id" layoutX="52.0" layoutY="22.0" prefHeight="39.0" prefWidth="118.0" promptText=" Угол в градусах" />
+      <Button fx:id="btClear_id" layoutX="892.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleClearButtonClick" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: Orange;" text="Очистка" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btMain_id" layoutX="892.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: Orange;" text="Запуск" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="15.0" layoutY="33.0" text="Угол =" />
+      <TextField fx:id="initialSpeed_id" layoutX="52.0" layoutY="68.0" prefHeight="39.0" prefWidth="118.0" promptText="Начальная скорость" />
+      <Label layoutX="20.0" layoutY="79.0" prefHeight="17.0" prefWidth="27.0" text="v0 = " />
+   </children>
+</AnchorPane>

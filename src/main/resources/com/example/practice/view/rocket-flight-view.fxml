@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1028.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.practice.controller.RocketFlightController">
+   <children>
+      <LineChart fx:id="main_lineChart_id" layoutX="2.0" layoutY="164.0" prefHeight="441.0" prefWidth="1024.0">
+         <xAxis>
+            <NumberAxis prefHeight="48.0" prefWidth="967.0" side="BOTTOM" />WWWW
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </LineChart>
+      <TextField fx:id="angle2_id" layoutX="57.0" layoutY="23.0" prefHeight="39.0" prefWidth="118.0" promptText=" Угол в градусах" />
+      <TextField fx:id="m0_id" layoutX="57.0" layoutY="69.0" prefHeight="39.0" prefWidth="118.0" promptText="Начальная масса РН" />
+      <TextField fx:id="m10_id" layoutX="57.0" layoutY="115.0" prefHeight="39.0" prefWidth="118.0" promptText="Начальная масса 1 ступени" />
+      <TextField fx:id="mr1_id" layoutX="228.0" layoutY="23.0" prefHeight="39.0" prefWidth="118.0" promptText="Расход топлива 1 ступени" />
+      <TextField fx:id="wa1_id" layoutX="228.0" layoutY="69.0" prefHeight="39.0" prefWidth="118.0" promptText="Скорость истечения 1-ой ступени" />
+      <TextField fx:id="m1t_id" layoutX="228.0" layoutY="115.0" prefHeight="39.0" prefWidth="118.0" promptText="Масса топлива 1 ступени" />
+      <TextField fx:id="d1_id" layoutX="391.0" layoutY="23.0" prefHeight="39.0" prefWidth="118.0" promptText="Диаметр по миделю 1 ступени" />
+      <TextField fx:id="ds1_id" layoutX="391.0" layoutY="69.0" prefHeight="39.0" prefWidth="118.0" promptText="Диаметр среза сопла 1-ой ступени " />
+      <TextField fx:id="pa1_id" layoutX="391.0" layoutY="115.0" prefHeight="39.0" prefWidth="118.0" promptText="Давление на срезе сопла 1-ой ступени" />
+      <Label layoutX="14.0" layoutY="34.0" text="Угол =" />
+      <Label layoutX="25.0" layoutY="80.0" text="m0 = " />
+      <Label layoutX="22.0" layoutY="126.0" text="m10 = " />
+      <Label layoutX="192.0" layoutY="34.0" text="mr1 = " />
+      <Label layoutX="192.0" layoutY="80.0" text="wa1 = " />
+      <Label layoutX="192.0" layoutY="126.0" text="m1t = " />
+      <Label layoutX="359.0" layoutY="34.0" text="D1 = " />
+      <Label layoutX="356.0" layoutY="80.0" text="Ds1 = " />
+      <Label layoutX="356.0" layoutY="126.0" text="Pa1 = " />
+      <Button fx:id="btMain_id" layoutX="896.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: Orange;" text="Запуск" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btClear_id" layoutX="896.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleClearButtonClick" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: Orange;" text="Очистка" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="n_id" layoutX="550.0" layoutY="23.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
+      <Label layoutX="524.0" layoutY="34.0" text="n = " />
+      <TextField fx:id="Cx_id" layoutX="550.0" layoutY="69.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
+      <TextField fx:id="Cn_id" layoutX="550.0" layoutY="119.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
+      <TextField fx:id="Cy_id" layoutX="708.0" layoutY="115.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
+      <Label layoutX="521.0" layoutY="80.0" text="Cx = " />
+      <Label layoutX="520.0" layoutY="126.0" text="Cn = " />
+      <Label layoutX="679.0" layoutY="126.0" text="Cy = " />
+      <Button fx:id="btSave_id" layoutX="896.0" layoutY="605.0" mnemonicParsing="false" onAction="#handleSaveButtonClick" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: Orange;" text="SAVE" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

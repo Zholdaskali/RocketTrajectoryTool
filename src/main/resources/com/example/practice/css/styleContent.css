@@ -1,0 +1,24 @@
+.button {
+
+    -fx-border-radius: 30;     /* Радиус округления границы */
+    -fx-background-color: Orange; /* Цвет фона кнопки */
+    -fx-text-fill: white;       /* Цвет текста */
+    -fx-padding: 10 20;         /* Внутренние отступы */
+    -fx-cursor: hand;           /* Указатель курсора при наведении */
+}
+
+/* Общий стиль для всех кнопок при наведении */
+.button:hover {
+    -fx-background-color: white;
+}
+
+/* Специфический стиль для кнопок по их идентификаторам */
+#btMainView_id:hover,
+#startParameterView_id:hover,
+#btTemp_id:hover {
+    -fx-background-color: #FFA500;
+}
+
+
+
+
