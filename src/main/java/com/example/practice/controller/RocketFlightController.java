@@ -78,49 +78,55 @@ public class RocketFlightController {
     private ObservableList<XYChart.Series<Number, Number>> seriesList1;
     private final PDFGenerator pdfGenerator = new PDFGenerator();
     private double resultH, resultDistance, angle;
+    private static int mainCountGraph = 1;
+    private int N;
+    private static boolean confirmed = false;
 
 //    public static ArrayList<Double> resultDistanceArray = new ArrayList<>();
 //    public static ArrayList<Double> resultHArray = new ArrayList<>();
     //    public static ArrayList<Double> heightsResult = new ArrayList<>();
 //    public static ArrayList<Double> velocitiesResult = new ArrayList<>();
 //    public static ArrayList<Double> distancesResult = new ArrayList<>();
+    //    private double angle1;
 
     @FXML
     public void initialize() {
         seriesList1 = FXCollections.observableArrayList();
     }
-    private static int mainCountGraph = 1;
-//    private double angle1;
-    private int N;
 
     @FXML
     void handleButtonClick(ActionEvent event) {
-        try {
-            double angle1 = Double.parseDouble(angle2_id.getText());
-            if (angle1 > 90){
-                ErrorHandler.showError("Угол не может быть больше 90 градуссов");
-            } else {
-                double m0 = 140;
-                double m1t = 110;
-                double mr1 = 16.67;
-                double wa1 = 1400;
-                double D1 = 0.2;
-                double Ds1 = 0.18;
-                double Pa1 = 5000;
-                int n = Integer.parseInt(n_id.getText());
-                double Cn = 0.2;
-                double Cx = 0.126;
-                double Cy = 0.126;
-                N = n;
-                angle = angle1;
-                Stages stage = new Stages(m0, m0, m1t, mr1, wa1, D1, Ds1, Pa1);
-                Coefficients coefficients = new Coefficients(Cx, Cy, Cn);
-                updateChart(angle1, stage, n, coefficients);
-                mainCountGraph++;
+        if (mainCountGraph < 4) {
+            try {
+                double angle1 = Double.parseDouble(angle2_id.getText());
+                if (angle1 > 90){
+                    ErrorHandler.showError("Угол не может быть больше 90 градуссов");
+                } else {
+                    double m0 = 140;
+                    double m1t = 110;
+                    double mr1 = 16.67;
+                    double wa1 = 1400;
+                    double D1 = 0.2;
+                    double Ds1 = 0.18;
+                    double Pa1 = 5000;
+                    int n = Integer.parseInt(n_id.getText());
+                    double Cn = 0.2;
+                    double Cx = 0.126;
+                    double Cy = 0.126;
+                    N = n;
+                    angle = angle1;
+                    Stages stage = new Stages(m0, m0, m1t, mr1, wa1, D1, Ds1, Pa1);
+                    Coefficients coefficients = new Coefficients(Cx, Cy, Cn);
+                    updateChart(angle1, stage, n, coefficients);
+                    mainCountGraph++;
+                }
+            } catch (NumberFormatException e) {
+                mainCountGraph = 1;
+                ErrorHandler.showError("Проверьте валидность вводимые данные");
             }
-        } catch (NumberFormatException e) {
-            mainCountGraph = 1;
-            ErrorHandler.showError("Проверьте валидность вводимые данные");
+        }
+        else {
+            ErrorHandler.showError("количество превышает допустимое");
         }
     }
 
@@ -147,11 +153,20 @@ public class RocketFlightController {
 
     @FXML
     void handleSaveButtonClick(ActionEvent event) {
-        File file = showSaveFileDialog();
-        if (file != null) {
+        if (mainCountGraph > 1) {
+            boolean userConfirmed = ErrorHandler.showWarning("Сохраняется только последний результат. Продолжить?");
+            if (userConfirmed) {
+                confirmed = true;
+                File file = showSaveFileDialog();
+                if (file != null) {
 //            (String content, String maxHText, double maxH, String distanceText, double maxDistance, String angleText, double angle, String filePath)
-            pdfGenerator.generatePDF(strDocs, strH, resultH, strDistance,resultDistance, strAngle, angle, file.getAbsolutePath());
-            ErrorHandler.showInfo("Успешно сохранено");
+                    pdfGenerator.generatePDF(strDocs, strH, resultH, strDistance,resultDistance, strAngle, angle, file.getAbsolutePath());
+                    ErrorHandler.showInfo("Успешно сохранено");
+                }
+            }
+        }
+        else {
+            ErrorHandler.showError("У вас пока нет расчетов");
         }
     }
 

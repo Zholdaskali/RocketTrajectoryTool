@@ -45,22 +45,25 @@ public class FlightController {
 
     @FXML
     private void handleButtonClick() {
+        if (countGraph < 6) {
+            try {
+                countGraph++;
+                double angle = Double.parseDouble(angle_id.getText());
+                double initialSpeed = Double.parseDouble(initialSpeed_id.getText());
 
-        try {
-            countGraph++;
-            double angle = Double.parseDouble(angle_id.getText());
-            double initialSpeed = Double.parseDouble(initialSpeed_id.getText());
+                double horizontalDistance = flightCalculator.calculateHorizontalDistance(angle, initialSpeed);
+                double maximumHeight = flightCalculator.calculateMaximumHeight(angle, initialSpeed);
 
-            double horizontalDistance = flightCalculator.calculateHorizontalDistance(angle, initialSpeed);
-            double maximumHeight = flightCalculator.calculateMaximumHeight(angle, initialSpeed);
+                String labelText = "Горизонтальное расстояние: " + FormatDouble.format(horizontalDistance)  + " м" + "\nМаксимальная высота: " + FormatDouble.format(maximumHeight) + " м";
 
-            String labelText = "Горизонтальное расстояние: " + FormatDouble.format(horizontalDistance)  + " м" + "\nМаксимальная высота: " + FormatDouble.format(maximumHeight) + " м";
+                infoLabel_id.setText(labelText);
 
-            infoLabel_id.setText(labelText);
-
-            showGraph(angle, initialSpeed);
-        }catch (NumberFormatException e) {
-            ErrorHandler.showError("Проверьте валидность вводимые данные");
+                showGraph(angle, initialSpeed);
+            }catch (NumberFormatException e) {
+                ErrorHandler.showError("Проверьте валидность вводимые данные");
+            }
+        }else {
+            ErrorHandler.showError("количество превышает допустимое");
         }
     }
 

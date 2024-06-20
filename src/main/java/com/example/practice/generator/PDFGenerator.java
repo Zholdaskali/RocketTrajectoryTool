@@ -1,17 +1,14 @@
 package com.example.practice.generator;
 
-import com.example.practice.format.FormatDocs;
 import com.example.practice.format.FormatDouble;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
-
 import java.io.IOException;
 import java.io.InputStream;
 
 public class PDFGenerator {
-
     private static final int MAX_CHARS_PER_LINE = 43;
 
     public void generatePDF(String content, String maxHText, double maxH, String distanceText, double maxDistance, String angleText, double angle, String filePath) {
@@ -27,12 +24,12 @@ public class PDFGenerator {
                 contentStream.beginText();
                 contentStream.newLineAtOffset(50, 700);
 
-                String fullText = content + maxHText +  FormatDouble.format(maxH) + "      "  + distanceText + FormatDouble.format(maxDistance) + "     " +  angleText + FormatDouble.format(angle);
+                String fullText = content + maxHText +  FormatDouble.format(maxH) + "       "  + distanceText + FormatDouble.format(maxDistance) + "     " +  angleText + FormatDouble.format(angle);
                 String[] lines = splitTextIntoLines(fullText, MAX_CHARS_PER_LINE);
 
                 for (String line : lines) {
                     contentStream.showText(line);
-                    contentStream.newLineAtOffset(0, -15); // Смещение для новой строки
+                    contentStream.newLineAtOffset(0, -15);
                 }
 
                 contentStream.endText();
@@ -54,7 +51,6 @@ public class PDFGenerator {
             int endIdx = Math.min(startIdx + maxCharsPerLine, textLength);
             lines[i] = text.substring(startIdx, endIdx);
         }
-
         return lines;
     }
 }

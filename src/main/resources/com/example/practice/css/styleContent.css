@@ -1,24 +1,14 @@
-.button {
+.menu-btn {
+    -fx-text-fill: white;
+    -fx-padding: 0 10;
+    -fx-cursor: hand;
+    -fx-background-color: transparent;
+    -fx-padding: 0 4px;
 
-    -fx-border-radius: 30;     /* Радиус округления границы */
-    -fx-background-color: Orange; /* Цвет фона кнопки */
-    -fx-text-fill: white;       /* Цвет текста */
-    -fx-padding: 10 20;         /* Внутренние отступы */
-    -fx-cursor: hand;           /* Указатель курсора при наведении */
 }
 
-/* Общий стиль для всех кнопок при наведении */
-.button:hover {
-    -fx-background-color: white;
+.menu-btn:hover {
+    -fx-border-width:0 0 0 4;
+    -fx-background-color:rgba(255, 255, 255, 0.5);
+    -fx-border-color: white;
 }
-
-/* Специфический стиль для кнопок по их идентификаторам */
-#btMainView_id:hover,
-#startParameterView_id:hover,
-#btTemp_id:hover {
-    -fx-background-color: #FFA500;
-}
-
-
-
-

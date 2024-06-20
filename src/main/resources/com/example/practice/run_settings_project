@@ -1,0 +1,14 @@
+Скачайте
+JDK 20
+javafx-sdk-21.0.1
+
+
+
+--настройка проекта для запуска--
+
+--настройка javaFx
+Заходите в "run" -> "edit configuration" -> "modify option" -> "add mv option" и вставляете в ковычки путь к lib в javafx-sdk-21.0.1       ->       --module-path " СЮДА ПУТЬ К LIB " --add-modules javafx.controls,javafx.fxml
+
+--настройка JDK
+Заходите в "file" -> "project structure" -> "module SDK" выбирите 20 версию которую вы скачали
+
