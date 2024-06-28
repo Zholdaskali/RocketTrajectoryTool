@@ -49,7 +49,7 @@
       <TextField fx:id="n_id" layoutX="550.0" layoutY="23.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
       <Label layoutX="524.0" layoutY="34.0" text="n = " />
       <TextField fx:id="Cx_id" layoutX="550.0" layoutY="69.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
-      <TextField fx:id="Cn_id" layoutX="550.0" layoutY="119.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
+      <TextField fx:id="Cn_id" layoutX="550.0" layoutY="115.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
       <TextField fx:id="Cy_id" layoutX="708.0" layoutY="115.0" prefHeight="39.0" prefWidth="118.0" promptText="Кол-во итераций" />
       <Label layoutX="521.0" layoutY="80.0" text="Cx = " />
       <Label layoutX="520.0" layoutY="126.0" text="Cn = " />
